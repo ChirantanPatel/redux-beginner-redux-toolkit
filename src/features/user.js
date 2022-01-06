@@ -7,15 +7,19 @@ export const userSlice = createSlice({
     initialState: { value : initialStateValue},
     reducers : {
         login : (state, action) => {
-                state.value = action.payload;
+            state.value = action.payload;
         },
 
         logout : (state) => {
             state.value = initialStateValue;
         },
+
+        userFormUpdate : (state, action) => {
+            state.value = action.payload;
+        },
     }
 });
 
-export const { login , logout} = userSlice.actions;
+export const { login , logout, userFormUpdate } = userSlice.actions;
 
 export default userSlice.reducer;
