@@ -10,11 +10,12 @@ function Login() {
     function loginUser() {
 
         dispatch(login({ name : "Chirantan", age : 10, email : "chirantan@gmail.com" }));
-
+        document.title = "Chirantan logged in";
     }
 
     function logoutUser() {
         dispatch(logout());
+        document.title = "Welcome react hook";
     }
  
     return (

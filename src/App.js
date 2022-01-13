@@ -5,6 +5,9 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import UpdateUserForm from './components/userForm';
 import { useSelector } from 'react-redux';
+import MouseContainer from './components/MouseContainer';
+import IntervalHookCounter from './components/IntervalHookCounter';
+import DataFetching from './components/DataFetching';
 
 function App() {
     const user = useSelector((state) => state.user.value);
@@ -15,7 +18,10 @@ function App() {
             <ChangeColor/> <br/><br/>
             {user.name ? 
                 <UpdateUserForm/> : null
-            }
+            } <br/><br/>
+            <MouseContainer/>  <br/><br/>
+            <IntervalHookCounter/> <br/><br/>
+            <DataFetching/> <br/><br/>
         </div>
     );
 }
