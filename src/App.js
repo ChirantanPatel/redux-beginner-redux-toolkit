@@ -13,6 +13,7 @@ import UseContextComponentC from './components/useContext/UseContextComponentC';
 import './App.css';
 import CounterOne from './components/CounterOne';
 import CounterTwo from './components/CounterTwo';
+import CounterThree from './components/CounterThree';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -31,6 +32,7 @@ function App() {
             <IntervalHookCounter/> <br/><br/>
             <CounterOne/>  <br/><br/>
             <CounterTwo/>  <br/><br/>
+            <CounterThree/>  <br/><br/>
             <UserContext.Provider value={'Chirantan'}>
                 <ChannelContext.Provider value={'Codevolution'}>
                     <UseContextComponentC/>
