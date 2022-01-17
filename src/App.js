@@ -1,6 +1,7 @@
-//https://www.youtube.com/watch?v=k68j9xlbHHk
+// https://www.youtube.com/watch?v=k68j9xlbHHk
+// https://www.youtube.com/watch?v=cF2lQ_gZeA8&list=PLC3y8-rFHvwisvxhZ135pogtX7_Oe3Q3A&index=1
 
-import React from 'react';
+import React , { useReducer } from 'react';
 import ChangeColor from './components/ChangeColor';
 import Login from './components/Login';
 import Profile from './components/Profile';
@@ -14,35 +15,82 @@ import './App.css';
 import CounterOne from './components/CounterOne';
 import CounterTwo from './components/CounterTwo';
 import CounterThree from './components/CounterThree';
+import ReducerExA from './components/reducer-context-example/ReducerExA';
+import ReducerExB from './components/reducer-context-example/ReducerExB';
+import ReducerExC from './components/reducer-context-example/ReducerExC';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
 
+export const CountContext = React.createContext();
+
+const initialState = 0;
+const reducer = (state, action) => {
+    
+    switch(action) {
+        case 'increment' :
+            return state + 1
+        case 'decrement' :
+            return state - 1
+        case 'reset' :   
+            return initialState;
+        default :
+            return state 
+    }
+
+}
+
 function App() {
     const user = useSelector((state) => state.user.value);
+
+    const [count, dispatch] = useReducer(reducer, initialState);
+
     return (
         <div className="App"> 
+            <h2>Example 1</h2>
             <Profile/>
-            <Login/> <br/>
+            <Login/> <br/> <br/>
+
+            <h2>Example 2</h2>
             <ChangeColor/> <br/><br/>
             {user.name ? 
                 <UpdateUserForm/> : null
             } <br/><br/>
+
+            <h2>Example 3</h2>
             <MouseContainer/>  <br/><br/>
+
+            <h2>Example 4</h2>
             <IntervalHookCounter/> <br/><br/>
+
+            <h2>Example 5</h2>
             <CounterOne/>  <br/><br/>
             <CounterTwo/>  <br/><br/>
             <CounterThree/>  <br/><br/>
+
+            <h2>Example 6</h2>
             <UserContext.Provider value={'Chirantan'}>
                 <ChannelContext.Provider value={'Codevolution'}>
                     <UseContextComponentC/>
                 </ChannelContext.Provider>
             </UserContext.Provider>
 
+            <h2>Example 7 (useReducer with useContext)</h2>
+            <CountContext.Provider value={{ countState : count, countDispatch : dispatch }}>  
+            
+                    Count - {count}
+                    <ReducerExA/>
+                    <ReducerExB/>
+                    <ReducerExC/>
+               
+            </CountContext.Provider>
+
+            <h2>Example 8</h2>
             <DataFetching/> <br/><br/>
 
             
         </div>
+
     );
 }
 
