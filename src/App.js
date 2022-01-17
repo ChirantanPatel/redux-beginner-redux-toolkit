@@ -12,6 +12,7 @@ import DataFetching from './components/DataFetching';
 import UseContextComponentC from './components/useContext/UseContextComponentC';
 import './App.css';
 import CounterOne from './components/CounterOne';
+import CounterTwo from './components/CounterTwo';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -29,6 +30,7 @@ function App() {
             <MouseContainer/>  <br/><br/>
             <IntervalHookCounter/> <br/><br/>
             <CounterOne/>  <br/><br/>
+            <CounterTwo/>  <br/><br/>
             <UserContext.Provider value={'Chirantan'}>
                 <ChannelContext.Provider value={'Codevolution'}>
                     <UseContextComponentC/>

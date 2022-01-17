@@ -22,10 +22,11 @@ function CounterOne() {
 
     return (
         <div>
+            <div> <h3> Reducer with value </h3> </div>
             <div>Count - {count}</div>
-            <button onClick={() => dispatch('increment')}>Increment</button>
-            <button onClick={() => dispatch('decrement')}>Decrement</button>
-            <button onClick={() => dispatch('reset')}>Reset</button>
+            <button onClick={() => dispatch('increment')}>Increment</button> &nbsp;&nbsp;&nbsp;
+            <button onClick={() => dispatch('decrement')}>Decrement</button> &nbsp;&nbsp;&nbsp;
+            <button onClick={() => dispatch('reset')}>Reset</button> &nbsp;&nbsp;&nbsp;
         </div>
     )
 }
