@@ -21,6 +21,7 @@ import ReducerExC from './components/reducer-context-example/ReducerExC';
 import DataFetchingOne from './components/data-fetch/DataFetchingOne';
 import DataFetchingTwo from './components/data-fetch/DataFetchingTwo';
 import ParentComponent from './components/useCallback/ParentComponent';
+import UseMemoCounter from './components/useMemo/UseMemoCounter';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -100,6 +101,9 @@ function App() {
 
             <h2>Example 10 (useCallback)</h2>
             <ParentComponent/>
+
+            <h2>Example 10 (useMemo)</h2>
+            <UseMemoCounter/>
             
         </div>
 
