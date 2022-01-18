@@ -18,6 +18,8 @@ import CounterThree from './components/CounterThree';
 import ReducerExA from './components/reducer-context-example/ReducerExA';
 import ReducerExB from './components/reducer-context-example/ReducerExB';
 import ReducerExC from './components/reducer-context-example/ReducerExC';
+import DataFetchingOne from './components/data-fetch/DataFetchingOne';
+import DataFetchingTwo from './components/data-fetch/DataFetchingTwo';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -88,6 +90,11 @@ function App() {
             <h2>Example 8</h2>
             <DataFetching/> <br/><br/>
 
+            <h2>Example 9 (Fetching data with useReducer)</h2>
+            <b> Example A : </b>
+            <DataFetchingOne/>
+            <b> Example B : </b>
+            <DataFetchingTwo/>
             
         </div>
 
