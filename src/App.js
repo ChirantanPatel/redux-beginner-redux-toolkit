@@ -22,6 +22,9 @@ import DataFetchingOne from './components/data-fetch/DataFetchingOne';
 import DataFetchingTwo from './components/data-fetch/DataFetchingTwo';
 import ParentComponent from './components/useCallback/ParentComponent';
 import UseMemoCounter from './components/useMemo/UseMemoCounter';
+import FocusInput from './components/useRef/FocusInput';
+import ClassTimer from './components/useRef/ClassTimer';
+import HookTimer from './components/useRef/HookTimer';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -104,7 +107,14 @@ function App() {
 
             <h2>Example 10 (useMemo)</h2>
             <UseMemoCounter/>
-            
+
+            <h2>Example 10 (useRef)</h2>
+            <b> Example A : </b>
+            <FocusInput/> <br/>
+            <b> Example B : </b>
+            <ClassTimer/>
+            <HookTimer/>
+
         </div>
 
     );
