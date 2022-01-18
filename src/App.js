@@ -20,6 +20,7 @@ import ReducerExB from './components/reducer-context-example/ReducerExB';
 import ReducerExC from './components/reducer-context-example/ReducerExC';
 import DataFetchingOne from './components/data-fetch/DataFetchingOne';
 import DataFetchingTwo from './components/data-fetch/DataFetchingTwo';
+import ParentComponent from './components/useCallback/ParentComponent';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -95,6 +96,10 @@ function App() {
             <DataFetchingOne/>
             <b> Example B : </b>
             <DataFetchingTwo/>
+
+
+            <h2>Example 10 (useCallback)</h2>
+            <ParentComponent/>
             
         </div>
 
