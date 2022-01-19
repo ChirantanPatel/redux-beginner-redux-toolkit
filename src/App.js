@@ -5,7 +5,7 @@ import React , { useReducer } from 'react';
 import ChangeColor from './components/ChangeColor';
 import Login from './components/Login';
 import Profile from './components/Profile';
-import UpdateUserForm from './components/userForm';
+import UpdateUserForm from './components/UpdateUserForm';
 import { useSelector } from 'react-redux';
 import MouseContainer from './components/MouseContainer';
 import IntervalHookCounter from './components/IntervalHookCounter';
@@ -25,6 +25,11 @@ import UseMemoCounter from './components/useMemo/UseMemoCounter';
 import FocusInput from './components/useRef/FocusInput';
 import ClassTimer from './components/useRef/ClassTimer';
 import HookTimer from './components/useRef/HookTimer';
+import DocTitleOne from './components/customHooks/DocTitleOne';
+import DocTitleTwo from './components/customHooks/DocTitleTwo';
+import CustomHookCounterOne from './components/customHooks/CustomHookCounterOne';
+import CustomHookCounterTwo from './components/customHooks/CustomHookCounterTwo';
+import UserFormCustomHook from './components/customHooks/UserFormCustomHook';
 
 export const UserContext = React.createContext();
 export const ChannelContext = React.createContext();
@@ -114,6 +119,13 @@ function App() {
             <b> Example B : </b>
             <ClassTimer/>
             <HookTimer/>
+
+            <h2>Example 11 (Custom Hooks)</h2>
+            <DocTitleOne/>
+            <DocTitleTwo/>
+            <CustomHookCounterOne/>
+            <CustomHookCounterTwo/>
+            <UserFormCustomHook/>
 
         </div>
 
