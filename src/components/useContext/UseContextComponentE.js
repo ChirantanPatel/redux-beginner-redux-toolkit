@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { ChannelContext, UserContext } from '../../App';
+import React, { useContext } from 'react'; 
+import { ChannelContext, UserContext } from '../examples/Example5';
 // import UseContextComponentF from './UseContextComponentF';
 
 
