@@ -16,7 +16,7 @@ export const userSlice = createSlice({
 
         userFormUpdate : (state, action) => {
             state.value = action.payload;
-        },
+        }, 
     }
 });
 

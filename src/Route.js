@@ -12,6 +12,7 @@ import Example9 from './components/examples/Example9';
 import Example10 from './components/examples/Example10';
 import Example11 from './components/examples/Example11';
 import Example12 from './components/examples/Example12';
+import Example13 from './components/examples/Example13';
 
 export default class AppRoutes extends Component {
     render() {
@@ -32,6 +33,7 @@ export default class AppRoutes extends Component {
                             <Route path="/example10" element={<Example10/>} />
                             <Route path="/example11" element={<Example11/>} />
                             <Route path="/example12" element={<Example12/>} />
+                            <Route path="/example13" element={<Example13/>} />
                         </Routes>
                     </div>
             </Router>

@@ -40,6 +40,12 @@ li {
   padding: 5px;
 }
 
+table, tr,td,th {
+  border: 1px solid gray;
+  padding: 5px;
+  text-align: left;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -47,4 +53,17 @@ li {
   to {
     transform: rotate(360deg);
   }
+}
+
+.user-form-submit-btn {
+    width: 120px;
+    height: 35px;
+    background-color: #0075ff;
+    border: 1px solid #0075ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+li a {
+  color: #0075ff;
 }

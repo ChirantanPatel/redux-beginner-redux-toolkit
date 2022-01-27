@@ -18,6 +18,7 @@ function TopNavBar() {
                     <li> <Link to="/example10"> Example 10 </Link> </li>
                     <li> <Link to="/example11"> Example 11 </Link> </li>
                     <li> <Link to="/example12"> Example 12 </Link> </li>
+                    <li> <Link to="/example13"> Example 13 </Link> </li>
                 </ul>
         </div>
     )
