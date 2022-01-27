@@ -1,16 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function UserList() {
 
-    let userList = [{
-        user_name: 'Chirantan',
-        email: 'chirantan@gmail.com',
-        password: '123456',
-        gender: 'male',
-        date_of_birth: '21/07/2021',
-        country: 'india',
-        technical_skills: "Angular, Reactjs"
-    }];
+    // let userList = [{
+    //     user_name: 'Chirantan',
+    //     email: 'chirantan@gmail.com',
+    //     password: '123456',
+    //     gender: 'male',
+    //     date_of_birth: '21/07/2021',
+    //     country: 'india',
+    //     technical_skills: "Angular, Reactjs"
+    // }]; 
+    let userList = useSelector((state) => state.userList.value);
 
     return (
         <div>
@@ -28,7 +30,7 @@ function UserList() {
                     </tr>
                     </thead>
                     <tbody>
-                    {
+                    { userList.length > 0 ?
                         userList.map((user, index) =>
                             <tr key={index}>
                                 <td>{user.user_name}</td>
@@ -39,7 +41,10 @@ function UserList() {
                                 <td>{user.country}</td>
                                 <td>{user.technical_skills}</td>
                             </tr>
-                        )
+                        ) : 
+                        <tr>
+                                <td colSpan={'7'} style={{textAlign: 'center'}}> No record found </td>
+                        </tr>
                     }
                 </tbody>
             </table>

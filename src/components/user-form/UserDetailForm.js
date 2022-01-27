@@ -1,10 +1,13 @@
 import { Field, Formik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { userList } from './../../features/user-list';
 
 function UserDetailForm() {
 
     let initialValues = { user_name: '', email: '', password: '', gender: 'Male', date_of_birth: '', country: '', technical_skills: '' };
     // const [formValues, setFormValues] = useState(initialValues);
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -38,10 +41,15 @@ function UserDetailForm() {
                     // setFormValues(values);
                     return errors;
                 }}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, actions) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
+                        // alert(JSON.stringify(values, null, 2));
+                        dispatch(userList(values));
+                        actions.setSubmitting(false);
+
+                        actions.resetForm({
+                            values: initialValues,
+                        });
                     }, 400);
                 }}
             >

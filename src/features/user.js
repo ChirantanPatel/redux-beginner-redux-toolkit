@@ -16,10 +16,10 @@ export const userSlice = createSlice({
 
         userFormUpdate : (state, action) => {
             state.value = action.payload;
-        }, 
+        }
     }
 });
 
-export const { login , logout, userFormUpdate } = userSlice.actions;
+export const { login , logout, userFormUpdate, userListEx13 } = userSlice.actions;
 
 export default userSlice.reducer;
