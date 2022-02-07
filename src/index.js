@@ -13,7 +13,8 @@ const store = configureStore({
     user : userReducer,
     theme : themeReducer,
     userList : userListReducer
-  }
+  },
+  devTools: true,
 });
 
 ReactDOM.render(

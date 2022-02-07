@@ -1,19 +1,25 @@
 import { Field, Formik } from 'formik';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { userList } from './../../features/user-list';
 
 function UserDetailForm() {
-
-    let initialValues = { user_name: '', email: '', password: '', gender: 'Male', date_of_birth: '', country: '', technical_skills: '' };
-    // const [formValues, setFormValues] = useState(initialValues);
+    console.log("call user form page");
+    let initialValues = { id : 0, user_name: '', email: '', password: '', gender: 'Male', date_of_birth: '', country: '', technical_skills: '' };
+    // let test = { id : 0, user_name: 'asdas', email: 'asdsad', password: '', gender: 'Male', date_of_birth: '', country: '', technical_skills: '' };
+    const [formValues, setFormValues] = useState(initialValues); 
+    const editUser = useSelector((state) => state.userList.userDetail);
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+        setFormValues(editUser);
+    }, [editUser]);
 
     return (
         <div>
             <h2>User Detail Form</h2>
             <Formik
-                initialValues={initialValues}
+                initialValues={formValues}
                 validate={values => {
                     const errors = {};
 
@@ -44,12 +50,15 @@ function UserDetailForm() {
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
                         // alert(JSON.stringify(values, null, 2));
-                        dispatch(userList(values));
-                        actions.setSubmitting(false);
-
+                        let userData = JSON.parse(JSON.stringify(values));                        
+                        if(userData.technical_skills) {
+                            userData.technical_skills = userData.technical_skills.join(", ");
+                        }
                         actions.resetForm({
                             values: initialValues,
                         });
+                        dispatch(userList(userData));
+                        actions.setSubmitting(false);
                     }, 400);
                 }}
             >
@@ -60,7 +69,7 @@ function UserDetailForm() {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    isSubmitting,
+                    isSubmitting
                     /* and other goodies */
                 }) => (
                     <form onSubmit={handleSubmit}>
@@ -127,12 +136,23 @@ function UserDetailForm() {
                         <br />
 
                         <div>
-                            <select name="country" id="country" onChange={handleChange} style={{ width: '13.5%' }}>
+                            {/* <select name="country" id="country" onChange={handleChange} style={{ width: '13.5%' }}>
                                 <option value="">-- Select country --</option>
                                 <option value="india">India</option>
                                 <option value="usa">USA</option>
                                 <option value="uk">UK</option>
                             </select> &nbsp;
+                            {errors.country && touched.country && errors.country} */}
+
+                            {/* <label htmlFor="country">Select country</label> */}
+                            <Field component="select" id="country"
+                            onChange={handleChange} 
+                                name="country"  multiple={false} >
+                                <option value="">-- Select country --</option>
+                                <option value="india">India</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">UK</option>
+                            </Field>
                             {errors.country && touched.country && errors.country}
                         </div>
                         <br />
