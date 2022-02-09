@@ -12,10 +12,13 @@ export const userListSlice = createSlice({
         },
         editUser : (state, action) => {
             state.userDetail = action.payload;
-        }
+        },
+        deleteUser : (state, action) => {
+            state.value = action.payload;
+        },
     }
 });
 
-export const { userList, editUser } = userListSlice.actions;
+export const { userList, editUser, deleteUser } = userListSlice.actions;
 
 export default userListSlice.reducer;

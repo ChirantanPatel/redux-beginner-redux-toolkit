@@ -57,8 +57,9 @@ function UserDetailForm() {
                         actions.resetForm({
                             values: initialValues,
                         });
-                        dispatch(userList(userData));
+                        dispatch(userList(userData)); 
                         actions.setSubmitting(false);
+                        setFormValues(initialValues);
                     }, 400);
                 }}
             >
@@ -185,7 +186,7 @@ function UserDetailForm() {
                 )}
             </Formik>
              
-            {/* {formValues ? JSON.stringify(formValues) : ""} */}
+            {formValues ? JSON.stringify(formValues) : ""}
         </div>
     );
 }

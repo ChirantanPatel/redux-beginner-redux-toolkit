@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector , useDispatch} from 'react-redux'; 
-import { editUser } from '../../features/user-list';
+import { editUser, deleteUser } from '../../features/user-list';
 
 function UserList() {
     console.log("call user list page");
@@ -13,18 +13,26 @@ function UserList() {
     //     country: 'india',
     //     technical_skills: "Angular, Reactjs"
     // }]; 
-    let userList = useSelector((state) => state.userList.value);
+    let userListSelector = useSelector((state) => state.userList.value);
+    let [userList, setUserList] = useState([]);
     const dispatch = useDispatch();
     
+    useEffect(() => {
+        setUserList(userListSelector);
+    }, [userListSelector]);
+
     function editUserDetail(params,id) {
-        debugger
         let reqData = JSON.parse(JSON.stringify(params));
         reqData.id = id;
         dispatch(editUser(reqData));
     }
 
-    function deleteUser(index) {
-        debugger
+    function deleteUserDetail(index) {
+        debugger 
+        let list = [...userList];
+        list.splice(index,1);
+        setUserList(list);
+        dispatch(deleteUser(list));
     }
 
     return (
@@ -56,7 +64,7 @@ function UserList() {
                                 <td>{user.technical_skills}</td>
                                 <td> 
                                     <button type="button" onClick={() => editUserDetail(user,index)} > Edit </button> &nbsp;&nbsp;
-                                    <button type="button" onClick={() => deleteUser(index)} > Delete </button>
+                                    <button type="button" onClick={() => deleteUserDetail(index)} > Delete </button>
                                 </td>
                             </tr>
                         ) : 
