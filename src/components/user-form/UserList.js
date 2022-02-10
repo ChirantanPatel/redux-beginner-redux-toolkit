@@ -28,12 +28,19 @@ function UserList() {
     }
 
     function deleteUserDetail(index) {
-        debugger 
         let list = [...userList];
         list.splice(index,1);
         setUserList(list);
         dispatch(deleteUser(list));
-    }
+    } 
+
+    useEffect(() => {
+        return () => {
+          console.log("cleaned up");
+          dispatch(deleteUser([]));
+          dispatch(editUser({}));
+        };
+      }, []);
 
     return (
         <div>

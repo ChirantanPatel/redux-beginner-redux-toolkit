@@ -74,114 +74,121 @@ function UserDetailForm() {
                     /* and other goodies */
                 }) => (
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <input
-                                type="user_name"
-                                name="user_name"
-                                placeholder="User Name"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.user_name}
-                            /> &nbsp;
-                            {errors.user_name && touched.user_name && errors.user_name}
-                        </div>
-                        <br />
-                        <div>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.email}
-                            /> &nbsp;
-                            {errors.email && touched.email && errors.email}
-                        </div>
-                        <br />
-                        <div>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.password}
-                            /> &nbsp;
-                            {errors.password && touched.password && errors.password}
-                        </div>
-                        <br />
 
-                        <div role="group" aria-labelledby="my-radio-group">
-                            <label>
-                                <Field type="radio" name="gender" value="Male" />
-                                &nbsp; Male
-                            </label>
-                            <label> &nbsp;
-                                <Field type="radio" name="gender" value="Female" />
-                                &nbsp; Female
-                            </label>
-                            {/* <div>Gender: {values.gender}</div> */}
-                        </div>
-                        <br />
-                        <div>
-                            <input
-                                type="date_of_birth"
-                                name="date_of_birth"
-                                placeholder="Date of birth"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.date_of_birth}
-                            /> &nbsp;
-                            {errors.date_of_birth && touched.date_of_birth && errors.date_of_birth}
-                        </div>
-                        <br />
+                        <div className="row">
+                            <div className="col-sm-4 p-10">
+                                <input
+                                    type="user_name"
+                                    name="user_name"
+                                    placeholder="User Name"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.user_name}
+                                /> &nbsp;
+                                <span className="validation-error"> {errors.user_name && touched.user_name && errors.user_name} </span>
+                            </div>
+                            
+                            <div className="col-sm-4 p-10">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+                                /> &nbsp;
+                                 <span className="validation-error"> {errors.email && touched.email && errors.email} </span>
+                            </div>
+                            
+                            <div className="col-sm-4 p-10">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.password}
+                                /> &nbsp;
+                                <span className="validation-error"> {errors.password && touched.password && errors.password} </span>
+                            </div>
+                        
 
-                        <div>
-                            {/* <select name="country" id="country" onChange={handleChange} style={{ width: '13.5%' }}>
-                                <option value="">-- Select country --</option>
-                                <option value="india">India</option>
-                                <option value="usa">USA</option>
-                                <option value="uk">UK</option>
-                            </select> &nbsp;
-                            {errors.country && touched.country && errors.country} */}
+                            <div className="col-sm-4 p-10" role="group" aria-labelledby="my-radio-group">
+                                <label>
+                                    <Field type="radio" name="gender" value="Male" />
+                                    &nbsp; Male
+                                </label>
+                                <label> &nbsp;
+                                    <Field type="radio" name="gender" value="Female" />
+                                    &nbsp; Female
+                                </label>
+                                {/* <div>Gender: {values.gender}</div> */}
+                            </div>
+                        
+                        
+                            <div className="col-sm-4 p-10">
+                                <input
+                                    type="date_of_birth"
+                                    name="date_of_birth"
+                                    placeholder="Date of birth"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.date_of_birth}
+                                /> &nbsp;
+                                <span className="validation-error"> {errors.date_of_birth && touched.date_of_birth && errors.date_of_birth} </span>
+                            </div>
+                            
 
-                            {/* <label htmlFor="country">Select country</label> */}
-                            <Field component="select" id="country"
-                            onChange={handleChange} 
-                                name="country"  multiple={false} >
-                                <option value="">-- Select country --</option>
-                                <option value="india">India</option>
-                                <option value="usa">USA</option>
-                                <option value="uk">UK</option>
-                            </Field>
-                            {errors.country && touched.country && errors.country}
+                            <div className="col-sm-4 p-10">
+                                {/* <select name="country" id="country" onChange={handleChange} style={{ width: '13.5%' }}>
+                                    <option value="">-- Select country --</option>
+                                    <option value="india">India</option>
+                                    <option value="usa">USA</option>
+                                    <option value="uk">UK</option>
+                                </select> &nbsp;
+                                {errors.country && touched.country && errors.country} */}
+
+                                {/* <label htmlFor="country">Select country</label> */}
+                                <Field component="select" id="country"
+                                onChange={handleChange} 
+                                    name="country"  multiple={false} >
+                                    <option value="">-- Select country --</option>
+                                    <option value="india">India</option>
+                                    <option value="usa">USA</option>
+                                    <option value="uk">UK</option>
+                                </Field>
+                                <span className="validation-error">{errors.country && touched.country && errors.country}</span>
+                            </div>
+                            
+                            <div className="col-sm-4 p-10">
+                                <div id="checkbox-group">Technical skills :</div>
+                                <div role="group" aria-labelledby="checkbox-group">
+                                    <label>
+                                        <Field type="checkbox" name="technical_skills" value="angular" />
+                                        Angular
+                                    </label> &nbsp;
+                                    <label>
+                                        <Field type="checkbox" name="technical_skills" value="reactjs" />
+                                        React js
+                                    </label> &nbsp;
+                                    <label>
+                                        <Field type="checkbox" name="technical_skills" value="node" />
+                                        Node
+                                    </label> &nbsp;
+                                    <label>
+                                        <Field type="checkbox" name="technical_skills" value="java" />
+                                        Java
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <br />
-
-                        <div id="checkbox-group">Technical skills :</div>
-                        <div role="group" aria-labelledby="checkbox-group">
-                            <label>
-                                <Field type="checkbox" name="technical_skills" value="angular" />
-                                Angular
-                            </label> &nbsp;
-                            <label>
-                                <Field type="checkbox" name="technical_skills" value="reactjs" />
-                                React js
-                            </label> &nbsp;
-                            <label>
-                                <Field type="checkbox" name="technical_skills" value="node" />
-                                Node
-                            </label> &nbsp;
-                            <label>
-                                <Field type="checkbox" name="technical_skills" value="java" />
-                                Java
-                            </label>
+                        <div className="row m-t-10">
+                            <div className="col-sm-4">
+                                <button type="submit" className='user-form-submit-btn' disabled={isSubmitting}>
+                                    Submit
+                                </button>
+                            </div>
                         </div>
-                        <br />
-
-                        <button type="submit" className='user-form-submit-btn' disabled={isSubmitting}>
-                            Submit
-                        </button>
                     </form>
                 )}
             </Formik>

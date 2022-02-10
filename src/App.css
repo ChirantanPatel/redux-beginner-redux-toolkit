@@ -55,8 +55,8 @@ table, tr,td,th {
   }
 }
 
-.user-form-submit-btn {
-    width: 120px;
+button, .user-form-submit-btn {
+    min-width: 120px;
     height: 35px;
     background-color: #0075ff;
     border: 1px solid #0075ff;
@@ -66,4 +66,19 @@ table, tr,td,th {
 }
 li a {
   color: #0075ff;
+}
+
+input, select {
+  color: #000;
+}
+
+.validation-error {
+  color: red;
+  padding-left: 10px;
+}
+.p-10 {
+  padding: 10px;
+}
+.m-t-10 {
+  margin-top: 10px;
 }
